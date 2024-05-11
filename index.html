@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+
+
+    .offscreenmenu {
+        background-color: black;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        transition: 0.5s ease;
+    }
+
+    .offscreenmenu h1 {
+        color: white;
+        font-size: 2rem;
+        margin-right: 74px;
+        margin-bottom: 20px;
+    }
+
+    .offscreenmenu ul li {
+        color: white;
+        list-style: none;
+        margin-top: 10px;
+    }
+
+    .offscreenmenu.active {
+        right: 0;
+    }
+
+    .navbar {
+        padding: 1rem;
+        display: flex;
+        background-color: black;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .navbar h1 {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .hum {
+        height: 50px;
+        width: 50px;
+        margin-left: auto;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .hum span {
+        height: 5px;
+        width: 100%;
+        background-color: white;
+        border-radius: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.5s ease;
+    }
+
+    .hum span:nth-child(1) {
+        top: 25%;
+    }
+
+    .hum span:nth-child(3) {
+        top: 75%;
+    }
+
+    .hum.active span:nth-child(1) {
+        transform: translate(-50%, -50%)rotate(45deg);
+    }
+
+    .hum.active span:nth-child(1) {
+        opacity: 0;
+    }
+
+    .hum.active span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%)rotate(90deg);
+    }
+</style>
+
+<body>
+    <!-- Here I will create Menu humburger Function Menu Function Responcive -->
+    <div class="offscreenmenu">
+        <h1>LOGO</h1>
+        <ul>
+            <li>Home</li>
+            <li>ABOUT</li>
+            <li>PRODUCTS</li>
+            <li>SERVICES</li>
+            <li>CONTACT</li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <h1>LOGO</h1>
+        <div class="hum">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        let hum = document.querySelector('.hum');
+        let offscreenmenu = document.querySelector('.offscreenmenu');
+
+        hum.addEventListener('click', () => {
+            hum.classList.toggle('active');
+            offscreenmenu.classList.toggle('active')
+        })
+    </script>
+</body>
+
+</html>
